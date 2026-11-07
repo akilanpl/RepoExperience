@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+ <defs>
+  <linearGradient id="ground" x1="0" y1="0" x2="65%" y2="100%"><stop stop-color="#fff0e9"/><stop offset="1" stop-color="#e9baaa"/></linearGradient>
+  <linearGradient id="symbol" x1="10%" y1="0" x2="85%" y2="100%"><stop stop-color="#e08f70"/><stop offset="1" stop-color="#a4443e"/></linearGradient>
+  <linearGradient id="fold" x1="0" y1="0" x2="100%" y2="100%"><stop stop-color="#fff" stop-opacity=".84"/><stop offset=".32" stop-color="#e08f70"/><stop offset="1" stop-color="#a4443e"/></linearGradient>
+  <radialGradient id="light" cx="28%" cy="0" r="100%"><stop stop-color="#fff" stop-opacity=".8"/><stop offset=".65" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#a4443e" flood-opacity=".20"/></filter>
+  <clipPath id="frame"><rect x="5" y="5" width="246" height="246" rx="57"/></clipPath>
+ </defs>
+ <g clip-path="url(#frame)">
+  <rect x="5" y="5" width="246" height="246" rx="57" fill="url(#ground)"/>
+  <rect x="5" y="5" width="246" height="246" fill="url(#light)"/>
+  <g filter="url(#shadow)" transform="translate(20 20) scale(.84375)"><path d="M57 64h85c27 0 45 19 45 43s-18 43-45 43h-35l-35 31v-31H57Z" fill="url(#symbol)"/><path d="M111 99h70c24 0 39 16 39 37s-15 37-39 37h-17l-28 25v-25h-25Z" fill="url(#fold)" opacity=".8"/><path d="M84 105h53" stroke="#fff7ef" stroke-width="12" stroke-linecap="round"/></g>
+ </g>
+ <rect x="5.75" y="5.75" width="244.5" height="244.5" rx="56.25" fill="none" stroke="#fff" stroke-opacity=".72" stroke-width="1.5"/>
+ <rect x="5" y="5" width="246" height="246" rx="57" fill="none" stroke="#a4443e" stroke-opacity=".09"/>
+ </svg>

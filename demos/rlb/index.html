@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RLB · Agent workspace</title>
+  <link rel="stylesheet" href="workspace.css">
+  <script type="module" src="workspace.js"></script>
+</head>
+<body>
+  <main class="workspace">
+    <div class="titlebar">
+      <strong class="brand"><span aria-hidden="true">⌘</span> RLB</strong>
+      <span class="workspace-path">Workspace <span aria-hidden="true">/</span> rangoli-study</span>
+      <span class="local-tag"><i></i> Browser demo</span>
+    </div>
+    <aside class="sidebar">
+      <p class="label">EXPLORER</p>
+      <p class="folder"><span aria-hidden="true">⌄</span> rangoli-study</p>
+      <button class="file" type="button" data-view="source"><span aria-hidden="true">Py</span> rangoli.py</button>
+      <p class="label task-label">TASK PROGRESS</p>
+      <ol class="stages">
+        <li>Planning</li><li>Coding</li><li>Testing</li><li>Reviewing</li>
+      </ol>
+    </aside>
+    <div class="editor">
+      <nav class="editor-tabs" aria-label="Editor views">
+        <button type="button" data-view="task" aria-pressed="true"><span aria-hidden="true">✧</span> Agent task</button>
+        <button type="button" data-view="source" aria-pressed="false"><span aria-hidden="true">Py</span> rangoli.py</button>
+      </nav>
+      <section class="thread-body" id="task-view">
+      <header><div><p class="label">AGENT SESSION</p><h1>Animated rangoli</h1><p class="subtitle">Build a Python Turtle drawing from a single prompt.</p></div><span class="badge">Guided workspace</span></header>
+      <div class="prompt" hidden><p class="label">YOU</p><p>Design an animated rangoli using Turtle in Python.</p></div>
+      <div class="activity" hidden><canvas class="orb" aria-hidden="true"></canvas><div><p class="label">RLB</p><p class="status" role="status"></p></div></div>
+      <section class="approval" hidden aria-labelledby="plan-title">
+        <p class="label">PLAN REVIEW · VERSION 1</p>
+        <h2 id="plan-title">Is this plan okay?</h2>
+        <ol>
+          <li>Create <code>rangoli.py</code> using Python’s standard <code>turtle</code> module. Set up a 520 × 520 dark canvas.</li>
+          <li>Draw three radial rings of petals, with 16, 16, and 8 petals. Rotate through four colors, then add concentric borders and 32 diamonds.</li>
+          <li>Animate one stroke every 48 ms. Export the same drawing coordinates for this browser preview.</li>
+          <li>Check that the 75 strokes use valid points within the canvas before revealing the drawing.</li>
+        </ol>
+        <div class="buttons"><button class="primary yes" type="button">Yes, approve plan</button><button type="button" disabled>No</button></div>
+        <p class="fine">This guided example supports the approval path.</p>
+      </section>
+      <section class="result" hidden aria-labelledby="result-title">
+        <div class="result-header"><h2 id="result-title">Rangoli output</h2><a href="rangoli.py" download>Download rangoli.py ↓</a></div>
+        <svg viewBox="-260 -260 520 520" role="img" aria-label="Colorful symmetrical rangoli drawn from the Python Turtle coordinates"><g transform="scale(1,-1)"></g></svg>
+        <p class="fine">The preview animates the coordinate trace exported by the downloadable Python script. Run <code>python3 rangoli.py</code> to open the Turtle window locally.</p>
+        <div class="buttons"><button class="replay" type="button">Replay drawing</button><button class="reset" type="button">Start again</button></div>
+      </section>
+      <section class="result example-result" hidden aria-labelledby="example-title">
+        <div class="result-header"><h2 id="example-title" tabindex="-1">Task output</h2><a class="example-download" download>Download source ↓</a></div>
+        <div class="example-output"></div>
+        <details open><summary>Checks run in this browser</summary><ul class="checks"></ul></details>
+        <button class="reset" type="button">Choose another example</button>
+      </section>
+      <div class="composer">
+        <p class="label">TRY AN EXAMPLE</p>
+        <button type="button" class="start" data-example="rangoli"><span>Design an animated rangoli using Turtle in Python</span><b aria-hidden="true">↑</b></button>
+        <button type="button" class="start" data-example="classifier"><span>Build a support-ticket AI classifier</span><b aria-hidden="true">↑</b></button>
+        <button type="button" class="start" data-example="repository"><span>Add an Overdue filter to the Taskboard repo<small>Attached sample repository · Taskboard</small></span><b aria-hidden="true">↑</b></button>
+      </div>
+      <p class="fine boundary">These guided tasks use bundled code and a sample repository. The full RLB runtime can work on your local projects and also reviews staged code before publishing it.</p>
+      </section>
+      <section class="source-view" id="source-view" aria-label="Task source" hidden>
+        <div class="source-toolbar"><span>rangoli-study / rangoli.py</span><a href="rangoli.py" download>Download ↓</a></div>
+        <pre tabindex="0"><code></code></pre>
+      </section>
+    </div>
+    <footer class="statusbar"><span>⑂ &nbsp; rangoli-study</span><span>Python &nbsp; · &nbsp; UTF-8</span></footer>
+  </main>
+</body>
+</html>

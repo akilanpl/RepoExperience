@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Space Debris Sim · Mission control</title><link rel="stylesheet" href="../technical-workspace.css"><script type="module" src="mission.js"></script></head>
+<body><main>
+<header><div><p class="label">Space Debris Sim / Mission control</p><h1>Orbital collection mission</h1><p class="muted">Configure a launch, follow three thrusters, and inspect the collection telemetry.</p></div><span class="badge">Simulation</span></header>
+<section class="card">
+  <h2>Mission configuration</h2>
+  <form id="mission">
+    <div class="fields">
+      <label>Commander<input name="commander" value="Demo operator" required maxlength="40"></label>
+      <label>Rocket designation<input name="rocket" value="MOD-ODC-1" required maxlength="30"></label>
+      <label>Orbit altitude (km)<input name="altitude" type="number" min="100" max="40000" value="500" required></label>
+      <label>Launch latitude (°)<input name="latitude" type="number" min="-90" max="90" step="any" value="13.72" required></label>
+      <label>Launch longitude (°)<input name="longitude" type="number" min="-180" max="180" step="any" value="80.23" required></label>
+    </div>
+    <div class="actions"><button class="primary" id="start">Start mission</button><button type="button" id="pause" disabled>Pause</button><button type="button" id="step">Step once</button><button type="button" id="reset">Reset</button></div>
+  </form>
+  <div class="phase" aria-label="Mission phases"><span class="badge" aria-current="step">Prelaunch</span><span class="badge">Ascent</span><span class="badge">Collection</span><span class="badge">Return</span></div>
+  <p class="muted" id="mission-status" role="status">Ready for launch.</p>
+</section>
+<div id="metrics" class="metrics"></div>
+<div class="grid">
+  <section class="card"><h2>Temperature</h2><svg class="chart" id="temperature" viewBox="0 0 300 120" role="img" aria-label="Temperature by simulation step"></svg></section>
+  <section class="card"><h2>Average thruster speed</h2><svg class="chart" id="speed" viewBox="0 0 300 120" role="img" aria-label="Average thruster speed by simulation step"></svg></section>
+</div>
+<div class="grid">
+  <section class="card"><h2>Thruster loads</h2><div id="loads" class="stack"></div></section>
+  <section class="card"><h2>Mission log</h2><ol id="log" class="log"></ol></section>
+</div>
+<section class="card"><h2>Export session</h2><div class="actions"><button type="button" id="telemetry" disabled>Export telemetry CSV</button><button type="button" id="debris" disabled>Export debris CSV</button></div><p class="muted">This educational simulation uses simplified orbital velocities and stochastic collection. Each run can produce different loads.</p></section>
+</main></body></html>

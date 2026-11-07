@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="../">
+  <title>About Akilan P L</title>
+  <meta name="description" content="Akilan P L, an engineer based in Chennai working on machine learning, software systems, and interactive products.">
+  <link rel="stylesheet" href="style.css?v=20261107-nav-orb">
+  <link rel="stylesheet" href="about.css">
+  <script type="module" src="about.js"></script>
+  <script type="module" src="nav-orb.js"></script>
+</head>
+<body class="about-page">
+  <a class="skip" href="about/#intro">Skip to about</a>
+  <header class="header shell">
+    <nav aria-label="Main navigation"><a class="monogram" href="index.html" aria-label="Akilan, home">A</a><a href="index.html#work">Work</a><a href="about/" aria-current="page">About</a><a href="index.html#projects">Projects</a><a href="index.html#talk">Q&amp;A</a></nav>
+    <a class="pill header-contact" href="mailto:akilanpalaniyappan105@gmail.com"><span>Get in touch</span><b>↗</b></a>
+  </header>
+  <main class="about-shell">
+    <section class="about-intro" id="intro" aria-labelledby="about-title">
+      <div class="bio">
+        <h1 id="about-title">An engineer with a research instinct.</h1>
+        <p>I’m Akilan, an engineer based in Chennai working on machine learning, software systems, and the interfaces people use to understand them. Lately I’ve been building reasoning research, local companions, and tools that carry an idea into working software.</p>
+        <p>Across my work, I keep coming back to</p>
+        <ul><li>making reasoning inspectable</li><li>keeping complex workflows understandable</li><li>building tools people can try for themselves</li></ul>
+        <p>Reach out on LinkedIn, GitHub, or email. I’m in Chennai <span aria-label="India">🇮🇳</span> right now.</p>
+        <div class="socials" aria-label="Contact links">
+          <button type="button" id="copy-email" aria-label="Copy email address" title="Copy email address">✉</button>
+          <a href="https://www.linkedin.com/in/akilan-palaniyappan/" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="https://github.com/akilanpl" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.55 9.55 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+        </div>
+        <p class="copy-status" role="status"></p>
+      </div>
+      <div class="practice">
+        <div role="tablist" aria-label="About my work">
+          <button role="tab" id="tab-focus" aria-controls="work-panel" aria-selected="true" tabindex="0" data-tab="focus">Focus</button>
+          <button role="tab" id="tab-projects" aria-controls="work-panel" aria-selected="false" tabindex="-1" data-tab="projects">Projects</button>
+          <button role="tab" id="tab-tools" aria-controls="work-panel" aria-selected="false" tabindex="-1" data-tab="tools">Tools</button>
+        </div>
+        <div id="work-panel" role="tabpanel" aria-labelledby="tab-focus" tabindex="0"><div class="panel-list"></div></div>
+        <div class="question-box">
+          <form class="ask-form"><span class="ask-stamp" aria-hidden="true">✧</span><label class="visually-hidden" for="about-question">Ask about my practice</label><input id="about-question" placeholder="Ask about my practice" maxlength="250" required><button type="submit" aria-label="Ask">↑</button></form>
+          <div class="questions" aria-label="Questions to ask"><button data-question="approach">How do you approach a build?</button><button data-question="research">What is Mindscape?</button><button data-question="now">What are you working on?</button></div>
+          <p class="question-answer" role="status" hidden></p>
+        </div>
+      </div>
+    </section>
+    <section class="about-grid" aria-label="A few things from my work">
+      <a class="visual-card" href="experience/mindscape/"><div class="paper-stack"><img src="assets/stamp-art-1.svg" alt="Mindscape research pictorial"><span class="paper-note">Follow the reasoning.</span></div><p>Mindscape<br><span>Reasoning, made inspectable.</span></p></a>
+      <a class="visual-card" href="experience/rlb/"><div class="symbol-frame"><img src="assets/project-5.svg" alt="Relax Lemme Build symbol"></div><p>Relax Lemme Build<br><span>From intent to reviewed software.</span></p></a>
+      <a class="visual-card" href="experience/nyrc/"><div class="deck"><img src="demos/nyrc/nyrc.svg" alt="NYRC companion"><img src="assets/project-8.svg" alt=""><img src="assets/stamp-art-8.svg" alt=""></div><p>NYRC<br><span>A companion beside the work.</span></p></a>
+      <a class="visual-card" href="experience/worldspeak/"><div class="paper-stack second"><img src="assets/stamp-art-4.svg" alt="WorldSpeak pictorial"><span class="paper-note">Your words. Your voice.</span></div><p>WorldSpeak<br><span>Choose meaning. Review. Speak.</span></p></a>
+      <a class="visual-card" href="experience/atrium/"><div class="deck"><img src="demos/atrium/match-poster.jpg" alt="The Clockwork Library in The Atrium"><img src="assets/stamp-art-10.svg" alt=""><img src="assets/project-10.svg" alt=""></div><p>The Atrium<br><span>A small world with a hidden key.</span></p></a>
+      <a class="visual-card" href="index.html#world"><div class="location-art" aria-hidden="true"><span>13.08° N<br>80.27° E</span><strong>Chennai</strong><i>↗</i></div><p>Chennai, India<br><span>Where I build from.</span></p></a>
+      <a class="visual-card deck-card" href="experience/solarops/"><div class="deck"><img src="assets/stamp-art-2.svg" alt="SolarOps"><img src="assets/stamp-art-6.svg" alt=""><img src="assets/stamp-art-7.svg" alt=""></div><p>Connected workflows<br><span>From a request to a recorded outcome.</span></p></a>
+      <a class="visual-card deck-card" href="experience/enterprise-rag/"><div class="deck"><img src="assets/stamp-art-9.svg" alt="Enterprise RAG"><img src="assets/stamp-art-1.svg" alt=""><img src="assets/stamp-art-12.svg" alt=""></div><p>Evidence behind the answer<br><span>Retrieval, context, and access.</span></p></a>
+      <a class="visual-card deck-card" href="experience/space-debris/"><div class="deck"><img src="assets/stamp-art-11.svg" alt="Space Debris Sim"><img src="assets/stamp-art-10.svg" alt=""><img src="assets/stamp-art-5.svg" alt=""></div><p>Room to experiment<br><span>Simulations, games, and ideas in motion.</span></p></a>
+    </section>
+  </main>
+  <footer class="about-footer shell">
+    <div class="footer-words">
+      <div><h2>Akilan P L</h2><div class="footer-socials"><a href="https://www.linkedin.com/in/akilan-palaniyappan/">LinkedIn</a><a href="https://github.com/akilanpl">GitHub</a><a href="mailto:akilanpalaniyappan105@gmail.com">akilanpalaniyappan105@gmail.com</a></div></div>
+      <nav aria-label="Footer navigation"><a href="index.html#work">Work</a><a href="about/">About</a><a href="index.html#projects">Projects</a><a href="index.html#talk">Q&amp;A</a></nav>
+      <p class="footer-clock">☀ &nbsp; Chennai, IN <time id="chennai-time"></time><span>GMT+5:30</span></p>
+    </div>
+    <a class="git-stage" href="https://github.com/akilanpl" aria-label="Visit Akilan on GitHub">
+      <svg class="footer-git" viewBox="0 0 800 620" aria-hidden="true">
+        <defs>
+          <pattern id="git-stripes" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><rect width="1.7" height="7" fill="#49a1ed"/></pattern>
+          <mask id="git-cutout">
+            <rect width="800" height="620" fill="white"/>
+            <g fill="black" stroke="black" stroke-width="25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M315 170V405M315 220L465 370" fill="none"/>
+              <circle cx="315" cy="220" r="34"/>
+              <circle cx="315" cy="405" r="34"/>
+              <circle cx="465" cy="370" r="34"/>
+            </g>
+          </mask>
+        </defs>
+        <g class="git-symbol" mask="url(#git-cutout)">
+          <rect x="205" y="115" width="390" height="390" rx="27" transform="rotate(45 400 310)" fill="url(#git-stripes)"/>
+
+        </g>
+      </svg>
+    </a>
+  </footer>
+</body>
+</html>

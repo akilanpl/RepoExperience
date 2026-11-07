@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hazard Zone Sentinel</title><link rel="stylesheet" href="workspace.css"><script type="module" src="workspace.js"></script></head>
+<body>
+<div class="workspace">
+  <aside><a class="brand" href="#overview">Hazard Zone Sentinel</a><p class="label">Safety operations</p><nav aria-label="Safety operations"></nav><p class="credit">Powered by PipeGen<br>Perception → Action</p></aside>
+  <div class="content">
+    <header><span>Workspace &nbsp; › &nbsp; <strong id="section"></strong></span><span class="connected">● Recorded workspace</span></header>
+    <main>
+      <div id="screen"></div>
+      <section class="card replay" aria-labelledby="replay-title">
+        <h2 id="replay-title">Recorded walkthrough</h2>
+        <p class="muted">Follow the original operator session.</p>
+        <video controls playsinline preload="metadata" poster="warehouse-preview.jpg" src="recorded-walkthrough.mp4"></video>
+      </section>
+    </main>
+  </div>
+</div>
+<dialog aria-labelledby="incident-title"></dialog>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NYRC · Companion experience</title>
+  <link rel="stylesheet" href="experience.css">
+  <script type="module" src="experience.js"></script>
+</head>
+<body>
+  <main class="experience">
+    <aside class="mode-panel">
+      <img src="nyrc.svg" alt="" width="46" height="46">
+      <strong>NYRC</strong>
+      <label for="mode">Experience</label>
+      <select id="mode" aria-label="Experience">
+        <option value="desktop">Interactive desktop</option>
+        <option value="film">Physical AI film</option>
+      </select>
+      <p class="mode-caption">Try four commands with sample data.</p>
+    </aside>
+    <section class="desktop" aria-label="Interactive desktop">
+      <div class="desktop-meta"><span>NYRC WORKSPACE</span><span>Demo session</span></div>
+      <section class="companion" aria-labelledby="companion-title">
+        <div class="companion-heading">
+          <img src="nyrc.svg" alt="" width="45" height="45">
+          <div><h1 id="companion-title">NYRC</h1><p role="status"><i></i> <span class="companion-status">Ready to help</span></p></div>
+        </div>
+        <canvas class="thinking-orb" aria-hidden="true" hidden></canvas>
+        <div class="commands" aria-label="Example commands">
+          <button type="button" data-command="calendar"><span aria-hidden="true">▦</span> Show calendar</button>
+          <button type="button" data-command="process"><span aria-hidden="true">⌁</span> Show current process in Antigravity</button>
+          <button type="button" data-command="call"><span aria-hidden="true">♧</span> Call this person</button>
+          <button type="button" data-command="notifications"><span aria-hidden="true">◈</span> Show my recent notifications</button>
+        </div>
+      </section>
+      <footer class="taskbar">
+        <span class="windows-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <img src="nyrc.svg" width="28" height="28" alt="NYRC">
+        <span class="clock">09:41 <small>11/07/2026</small></span>
+      </footer>
+      <dialog aria-labelledby="window-title">
+        <header class="window-bar"><span id="window-title"></span><button type="button" class="close" aria-label="Close window">×</button></header>
+        <div class="window-content"></div>
+      </dialog>
+    </section>
+    <section class="film" aria-labelledby="film-title" hidden>
+      <p class="eyebrow">PHYSICAL AI / CONCEPT FILM</p>
+      <h1 id="film-title">On the way</h1>
+      <video controls playsinline preload="none" poster="physical-poster.jpg" src="physical-ai.mp4" aria-label="NYRC keychain concept film in New York"></video>
+      <p>A New York walk, an RLB task on the go, and a glance at the NYRC concept clipped to a backpack zipper.</p>
+      <a href="https://www.pexels.com/video/people-walking-on-a-street-5365843/" target="_blank" rel="noopener">New York footage by CityXcape ↗</a>
+    </section>
+  </main>
+</body>
+</html>

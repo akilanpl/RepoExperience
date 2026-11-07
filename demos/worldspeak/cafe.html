@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WorldSpeak · A seat at the café</title>
+  <link rel="stylesheet" href="cafe.css">
+  <script type="module" src="cafe.js"></script>
+</head>
+<body>
+  <main class="cafe">
+    <div class="scene" aria-label="Café scene from your seat">
+      <video src="cafe.mp4" poster="cafe.jpg" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      <span class="scene-tag">WORLD­SPEAK <i></i> CAFÉ PRACTICE</span>
+      <button class="motion" type="button">Play background</button>
+      <button class="person" data-person="left" type="button" aria-pressed="false"><span>01</span> Left table</button>
+      <button class="person" data-person="center" type="button" aria-pressed="false"><span>02</span> Across the aisle</button>
+      <p class="scene-note" hidden>Simulated close-up</p>
+    </div>
+    <section class="controls" aria-labelledby="scene-title">
+      <div class="scene-heading">
+        <div>
+          <p class="eyebrow">A SEAT AT THE CAFÉ</p>
+          <h1 id="scene-title">Who would you like to speak to?</h1>
+        </div>
+        <label class="language">Message language
+          <select><option value="en">English</option><option value="ta">தமிழ்</option></select>
+        </label>
+      </div>
+      <p class="instruction">You’re seated in a busy café. Select a marked person to get their attention or ask for help.</p>
+      <div class="actions" hidden aria-label="Choose an action" role="group">
+        <button type="button" data-action="help" aria-pressed="false">Ask for help</button>
+        <button type="button" data-action="call" aria-pressed="false">Call them over</button>
+      </div>
+      <div class="review" hidden>
+        <div>
+          <p class="eyebrow">EXACT WORDS TO SAY</p>
+          <p class="sentence" aria-live="polite"></p>
+        </div>
+        <button class="speak" type="button">Speak</button>
+      </div>
+      <p class="status" role="status"></p>
+      <footer>
+        <button class="reset" type="button" hidden>Start again</button>
+        <a href="index.html" target="_blank" rel="noopener">Open the WorldSpeak board ↗</a>
+        <a href="https://www.pexels.com/video/a-coffee-shop-restaurant-full-of-customers-3135924/" target="_blank" rel="noopener">Footage by Nazim Zafri ↗</a>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

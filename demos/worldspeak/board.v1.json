@@ -1,0 +1,9 @@
+{
+  "cacheVersion": "v1-72847613",
+  "assets": [
+    "/offline/index.html",
+    "/offline/board.js",
+    "/offline/board.css",
+    "/offline/board.v1.json"
+  ]
+}

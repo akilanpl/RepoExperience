@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Atrium · Complete match</title>
+  <style>
+    :root { color-scheme:dark; font:14px system-ui,sans-serif; background:#10191d; color:#f5eedc; }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    main { max-width:1120px; margin:auto; padding:clamp(12px,3vw,24px); }
+    h1 { font:700 clamp(23px,4vw,38px) Georgia,serif; margin:5px 0; }
+    p { margin:0 0 11px; line-height:1.5; color:#d0c5ad; }
+    .eyebrow { color:#dbc087; font-size:10px; letter-spacing:.15em; text-transform:uppercase; }
+    video { display:block; width:100%; aspect-ratio:16/9; background:#0a1013; border:1px solid #4a504b; border-radius:6px; }
+    nav { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+    button { background:#19262b; color:inherit; border:1px solid #54615e; padding:6px 9px; border-radius:4px; cursor:pointer; font:inherit; font-size:12px; }
+    button:hover,button:focus-visible { border-color:#dbc087; }
+  </style>
+  <script type="module" src="match.js"></script>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">The Atrium / The Clockwork Library</p>
+    <h1>A complete match</h1>
+    <p>Watch a two-player rehearsal from the opening lobby to the portal and final score. The round timers are shortened for the recording.</p>
+    <video controls playsinline preload="metadata" poster="match-poster.jpg" src="complete-match.mp4" aria-label="The Atrium complete two-player gameplay recording"></video>
+    <nav aria-label="Video chapters">
+      <button type="button" data-time="2">Opening</button>
+      <button type="button" data-time="5.4">Private lobby</button>
+      <button type="button" data-time="7.5">Hide the key</button>
+      <button type="button" data-time="10.5">Search the library</button>
+      <button type="button" data-time="31">Unlock the portal</button>
+      <button type="button" data-time="36">Final results</button>
+    </nav>
+  </main>
+</body>
+</html>

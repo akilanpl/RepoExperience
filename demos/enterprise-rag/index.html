@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Enterprise RAG · Retrieval console</title><link rel="stylesheet" href="../technical-workspace.css"><script type="module" src="workspace.js"></script></head>
+<body><main>
+<header><div><p class="label">Enterprise RAG / Request console</p><h1>Grounded retrieval</h1><p class="muted">Run a query as a demo principal and inspect the evidence it is allowed to retrieve.</p></div><span class="badge">Local demo</span></header>
+<div class="grid">
+  <section class="card">
+    <h2>Request</h2>
+    <form id="query-form" class="stack">
+      <label>Demo API key<select id="principal"></select></label>
+      <p class="muted" id="identity"></p>
+      <label>Query <span class="label">POST /v1/chat</span><textarea id="query" required maxlength="500">How many paid vacation days do employees receive?</textarea></label>
+      <div class="actions"><button type="button" data-query="How many paid vacation days do employees receive?">Leave policy</button><button type="button" data-query="When must security incidents be reported?">Security policy</button><button type="button" data-query="What is the approval threshold for procurement?">Procurement</button></div>
+      <button class="primary">Run retrieval</button>
+    </form>
+  </section>
+  <section class="card" aria-labelledby="response-title">
+    <h2 id="response-title">Response <span class="badge" id="response-code">Awaiting request</span></h2>
+    <p id="answer" class="answer" role="status">Run a query to view the cited excerpts.</p>
+    <div id="citations"></div>
+    <ol id="trace" class="trace"></ol>
+    <details hidden id="payload"><summary>Response JSON</summary><pre></pre></details>
+  </section>
+</div>
+<section class="card">
+  <h2>Document ingestion <span class="badge">POST /v1/documents</span></h2>
+  <p class="muted">Select an administrator key to add a document to its tenant.</p>
+  <form id="ingest" class="stack">
+    <div class="fields"><label>Title<input name="title" required maxlength="100"></label><label>Minimum reader role<select name="role"><option>public</option><option>employee</option><option>manager</option><option>admin</option></select></label></div>
+    <label>Document text<textarea name="text" required maxlength="3000"></textarea></label>
+    <div class="actions"><button class="primary">Ingest document</button></div>
+    <p class="muted" id="ingest-status" role="status"></p>
+  </form>
+</section>
+<p class="muted">The browser demo uses sample API identities and keyword retrieval. The original service uses Qdrant vector search and can connect to generation providers.</p>
+</main></body></html>

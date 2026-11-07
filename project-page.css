@@ -1,0 +1,21 @@
+.project-playground{margin:64px auto 72px;max-width:1100px}
+.project-architecture{margin:72px auto}
+.project-workflow{list-style:none;padding:0;margin:32px 0 56px}
+.project-workflow li{display:flex;gap:20px;border-top:1px solid #e9eaec;padding:22px 0}
+.project-workflow li>span{font-size:11px;color:#626b74;line-height:2}
+.project-workflow h4{font-size:18px;font-weight:500;margin:0 0 5px}
+.project-workflow p{font-size:14px;margin:0}
+.tour-options{display:flex;flex-wrap:wrap;gap:8px}
+.tour-detail{padding:24px 0;color:#30363d}
+.tour-detail h3{margin:8px 0;font-size:24px}
+.tour-mode{font-size:12px;color:#626b74}
+.tour-notes{line-height:1.6}
+.tour-actions{display:flex;flex-wrap:wrap;gap:18px;margin-top:16px;font-size:14px}
+.tour-actions a{text-decoration:underline;text-underline-offset:4px}
+.tour-actions a[hidden],.tour-surface[hidden]{display:none}
+.tour-surface{overflow:hidden;border:1px solid #e3e6e8;border-radius:16px;background:white;animation:tour-appear .25s ease-out}
+.tour-surface img{width:100%;height:auto;display:block}
+.tour-surface iframe{display:block;width:100%;height:clamp(500px,75vh,850px);border:0}
+@keyframes tour-appear{from{opacity:.5}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.tour-surface{animation:none}}
+@media(max-width:760px){.project-playground{margin-inline:-8px}}
