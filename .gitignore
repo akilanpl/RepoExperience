@@ -5,3 +5,4 @@
 node_modules/
 *-review.png
 morph-preview.png
+.vercel
