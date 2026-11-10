@@ -4,7 +4,7 @@ function mountBlueprintSignature() {
   if (!host) return;
   const style = document.createElement('style');
   style.textContent = `
-    .signature.blueprint-signature{position:relative;isolation:isolate;height:clamp(180px,28vw,350px);padding:0;background:none;-webkit-text-fill-color:initial;cursor:crosshair;outline-offset:6px;touch-action:pan-y}
+    .signature.blueprint-signature{position:relative;isolation:isolate;height:clamp(180px,28vw,350px);padding:0;background:none;-webkit-text-fill-color:initial;outline-offset:6px;touch-action:pan-y}
     .blueprint-signature .blueprint-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
     .blueprint-word>span{background:repeating-linear-gradient(135deg,var(--blue) 0 1px,#8dc8f5 1px 3px,transparent 3px 5px);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
     .blueprint-signature canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 280ms ease}
@@ -83,9 +83,6 @@ function mountBlueprintSignature() {
     ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);ctx.clip();
     ctx.drawImage(texture,0,0,width,height);
     ctx.restore();
-    // A quiet lens outline follows the pointer without changing the name's layout.
-    ctx.strokeStyle='#398ecb38';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);ctx.stroke();
-    ctx.strokeStyle='#398ecb77';ctx.beginPath();ctx.moveTo(x-4,y);ctx.lineTo(x+4,y);ctx.moveTo(x,y-4);ctx.lineTo(x,y+4);ctx.stroke();
     if(active&&!reduced.matches&&(Math.abs(targetX-x)>.15||Math.abs(targetY-y)>.15)) wake();
   }
   function wake(){if(!frame)frame=requestAnimationFrame(draw);}
