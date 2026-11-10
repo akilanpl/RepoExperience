@@ -1,6 +1,6 @@
 @font-face{font-family:Geist;src:url(assets/geist.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:Newsreader;src:url(assets/newsreader.woff2) format("woff2");font-style:italic;font-weight:200 800;font-display:swap}
-:root{--blue:#49a1ed;--ink:#080808;--paper:#fff;--muted:#6d6d6d;--gutter:clamp(20px,6.1vw,100px);font-family:Geist,Arial,sans-serif;color:var(--ink);background:#fff}
+:root{--blue:#49a1ed;--ink:#080808;--paper:#fff;--muted:#6d6d6d;--gutter:clamp(20px,6.1vw,80px);font-family:Geist,Arial,sans-serif;color:var(--ink);background:#fff}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit;text-decoration:none}button,summary{cursor:pointer}button{font:inherit}p,h1,h2,h3{margin:0}button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #1768ad;outline-offset:5px}.shell{width:min(100% - var(--gutter)*2,1512px);margin-inline:auto}.visually-hidden,.skip:not(:focus){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip:focus{position:fixed;top:85px;left:20px;background:white;padding:12px;z-index:9}
 .header{position:fixed;left:0;right:0;top:30px;z-index:8;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
 .header nav{display:flex;align-items:center;gap:3px;padding:4px 10px 4px 5px;border-radius:100px;background:#f7f7f8f5;backdrop-filter:blur(14px);pointer-events:auto}
@@ -306,3 +306,65 @@
 .monogram.orb-ready{font-size:0!important}
 .monogram.orb-ready .nav-orb{opacity:1}
 @media(max-width:760px){.header nav .monogram{min-width:38px;padding:4px;height:36px}}
+
+/* Compact editorial scale, aligned with the reference portfolio. */
+.shell{max-width:1120px}
+.header{top:20px}
+.header nav a{font-size:14px;padding:9px 10px}
+.header nav .monogram{margin-right:8px}
+.pill span,.pill b{min-height:40px}
+.pill span{padding-inline:20px;font-size:14px}
+.pill b{width:40px;font-size:20px}
+.hero h1{font-size:clamp(52px,6.4vw,92px)}
+.hero p{font-size:16px;max-width:520px;margin-top:24px}
+.hero-copy{padding-top:48px}
+.hero-next{font-size:clamp(32px,5vw,72px)}
+.work{padding-top:40px;padding-bottom:96px;gap:24px}
+.features{gap:36px}
+.feature h3{font-size:clamp(22px,1.9vw,28px)}
+.feature p{font-size:14px}
+.feature-visual{border-radius:20px}
+.tile{border-radius:16px}
+.globe-frame{width:min(44vh,360px,76vw)}
+.world-sticky{gap:32px}
+.world h2{font-size:clamp(36px,3.4vw,48px)}
+.world p{font-size:16px;max-width:380px}
+.moving{min-height:clamp(500px,48vw,650px)}
+.moving h2,.talk h2,.postage h2{font-size:clamp(44px,4.4vw,64px)}
+.moving p{font-size:14px;max-width:280px;margin-block:22px}
+.logo{width:clamp(60px,8.5vw,120px);height:clamp(60px,8.5vw,120px)}
+.postage-stage{padding:90px 0 32px}
+.postage-heading{margin-bottom:24px}
+.postage-heading p{font-size:16px;max-width:330px;margin-bottom:20px}
+.stamp-collection{gap:32px}
+.stamp-collection>li{flex-basis:232px;width:232px}
+.project-stamp{padding:16px}
+.stamp-label{padding:38px 0 4px}
+.stamp-label::before{left:-16px;right:-16px;top:9px;height:12px;background:radial-gradient(circle at 6px 6px,#fff 5px,transparent 5.5px) 0 0/15px 12px repeat-x}
+.stamp-series{font-size:9px;margin-bottom:6px}
+.stamp-title{font-size:25px;padding-right:36px}
+.stamp-number{font-size:30px}
+.talk{padding-block:90px 100px}
+.talk>div>p{font-size:14px;margin-top:18px}
+.questions summary{font-size:14px;padding:17px 44px 17px 18px}
+.questions details p{font-size:14px}
+.footer{min-height:60svh}
+.footer h2{font-size:clamp(36px,3.5vw,48px)}
+.signature{font-size:clamp(100px,24vw,350px);margin-top:48px}
+@media(max-width:760px){
+ .header{top:14px}
+ .header nav a{font-size:12px;padding:9px 6px}
+ .header nav .monogram{margin-right:0}
+ .hero h1{font-size:clamp(44px,9vw,64px)}
+ .hero p{font-size:15px;max-width:340px}
+ .hero-next{font-size:clamp(25px,6.7vw,44px)}
+ .work{padding-top:32px;padding-bottom:64px;gap:24px}
+ .moving{min-height:500px}
+ .moving h2,.talk h2,.postage h2{font-size:44px}
+ .world-sticky{padding-block:80px}
+ .postage-stage{padding:80px 0 28px}
+ .postage-heading{gap:18px;margin-bottom:18px}
+ .stamp-collection{gap:26px}
+ .stamp-collection>li{flex-basis:min(60vw,232px);width:min(60vw,232px)}
+ .talk{padding-block:64px 72px}
+}
