@@ -2,6 +2,7 @@ import { projects } from './projects.js';
 import { mountOrb, pauseOrbs } from './orb.js';
 import { mountStampScroll } from './stamp-scroll.js';
 import { mountStampPreviews } from './stamp-preview.js';
+import './analytics.js';
 
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const select = (selector) => document.querySelector(selector);
