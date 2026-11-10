@@ -71,3 +71,48 @@ if (link) {
   reduced.addEventListener('change', wake);
   wake();
 }
+
+
+// One shared sliding highlight follows pointer, keyboard focus, and scroll state.
+const nav = document.querySelector('.header nav');
+if (nav) {
+  document.querySelectorAll('.header nav a, .footer nav a').forEach((item) => {
+    if (new URL(item.href).hash === '#projects') item.textContent = 'Experience';
+  });
+  const items = [...nav.querySelectorAll('a:not(.monogram)')];
+  const indicator = document.createElement('span');
+  indicator.className = 'nav-indicator';
+  indicator.setAttribute('aria-hidden', 'true');
+  nav.prepend(indicator);
+  nav.classList.add('has-nav-indicator');
+  let hovered = null;
+  let focused = null;
+  let frame = 0;
+  function paintNavigation() {
+    frame = 0;
+    const target = hovered || focused || items.find((item) => item.hasAttribute('aria-current'));
+    if (!target) {
+      indicator.style.opacity = '0';
+      return;
+    }
+    indicator.style.width = `${target.offsetWidth}px`;
+    indicator.style.height = `${target.offsetHeight}px`;
+    indicator.style.transform = `translate3d(${target.offsetLeft}px,${target.offsetTop}px,0)`;
+    indicator.style.opacity = '1';
+  }
+  function requestNavigationPaint() {
+    if (!frame) frame = requestAnimationFrame(paintNavigation);
+  }
+  items.forEach((item) => {
+    item.addEventListener('pointerenter', () => { hovered = item; requestNavigationPaint(); });
+    item.addEventListener('focus', () => { focused = item; requestNavigationPaint(); });
+    item.addEventListener('blur', () => { focused = null; requestNavigationPaint(); });
+  });
+  nav.addEventListener('pointerleave', () => { hovered = null; requestNavigationPaint(); });
+  new MutationObserver(requestNavigationPaint).observe(nav, {
+    subtree: true, attributes: true, attributeFilter: ['aria-current']
+  });
+  new ResizeObserver(requestNavigationPaint).observe(nav);
+  document.fonts.ready.then(requestNavigationPaint);
+  requestNavigationPaint();
+}

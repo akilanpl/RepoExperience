@@ -368,3 +368,11 @@
  .stamp-collection>li{flex-basis:min(60vw,232px);width:min(60vw,232px)}
  .talk{padding-block:64px 72px}
 }
+
+/* A single moving pill keeps hover and the current section visually connected. */
+.header nav.has-nav-indicator{position:relative;isolation:isolate}
+.has-nav-indicator .nav-indicator{position:absolute;left:0;top:0;z-index:-1;pointer-events:none;border-radius:999px;background:#e9edf1;opacity:0;transition:transform 320ms cubic-bezier(.22,1,.36,1),width 320ms cubic-bezier(.22,1,.36,1),height 320ms cubic-bezier(.22,1,.36,1),opacity 180ms ease;will-change:transform}
+.header nav.has-nav-indicator a{transition:color 180ms ease,transform 240ms cubic-bezier(.22,1,.36,1)}
+.header nav.has-nav-indicator a:hover,.header nav.has-nav-indicator a[aria-current]{background:transparent}
+@media(hover:hover){.header nav.has-nav-indicator a:not(.monogram):hover{transform:translateY(-1px)}}
+@media(prefers-reduced-motion:reduce){.has-nav-indicator .nav-indicator,.header nav.has-nav-indicator a{transition:none!important;transform:none}.header nav.has-nav-indicator a:hover{transform:none}}

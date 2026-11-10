@@ -336,13 +336,20 @@ const updateClock = () => { select('#local-time').textContent = clock.format(new
 updateClock();
 setInterval(updateClock, 10000);
 
-const sectionLinks = [...document.querySelectorAll('.header nav a')];
+// Only inspect links that point to real sections on this page.
+const sectionLinks = [...document.querySelectorAll('.header nav a')].flatMap((link) => {
+  const url = new URL(link.href);
+  if (!url.hash || url.origin !== location.origin || url.pathname !== location.pathname) return [];
+  const section = url.hash === '#home' ? document.querySelector('.hero') : document.getElementById(url.hash.slice(1));
+  return section ? [{ link, section }] : [];
+});
 function updateNavigation() {
-  const current = sectionLinks.findLast((link) => {
-    const section = document.querySelector(link.hash);
-    return section && section.getBoundingClientRect().top < innerHeight * .36;
-  });
-  sectionLinks.forEach((link) => {
+  const marker = innerHeight * .36;
+  const current = sectionLinks.find(({ section }) => {
+    const rect = section.getBoundingClientRect();
+    return rect.top <= marker && rect.bottom > marker;
+  })?.link;
+  sectionLinks.forEach(({ link }) => {
     if (link === current) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
