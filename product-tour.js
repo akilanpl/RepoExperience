@@ -2,6 +2,15 @@
 const livePortfolio = 'https://akilan-portfolio-henna.vercel.app/';
 
 export const productTours = {
+  praxis: {
+    steps: [
+      ['Explore the workspace', 'Explore the actual navigation concepts in a static, source-derived demonstration. No API connection is required.', 'apps/web/src/main.tsx', 'demos/praxis/#workspace'],
+      ['Inspect evaluation suites', 'Select one of six public suites and inspect exact inputs, output schemas and executable assertions.', 'packages/scenarios/structured-agent-v1.json', 'demos/praxis/#suites'],
+      ['Run a sample evaluation', 'Replay passing or failing fixture evidence, or a historical real model evaluation. No inference runs in this preview.', 'runner/praxis/engine.py', 'demos/praxis/#run'],
+      ['Inspect task-level evidence', 'Read actual outputs, expected and observed assertion values, tool traces and HTTP evidence.', 'runner/praxis/agent.py', 'demos/praxis/#evidence'],
+      ['Compare results and reports', 'Inspect an explanatory comparison and export normalized JSON or print a report. No ranking or authentic blind match is claimed.', 'runner/praxis/engine.py', 'demos/praxis/#compare']
+    ]
+  },
   solarops: {
     steps: [
       ['Customer store', 'Explore the customer store or use the Workspace menu to switch between all six roles.', 'apps/web/src/app/customer/store/page.tsx', 'demos/solarops/#customer/store'],

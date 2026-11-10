@@ -21,11 +21,11 @@ export const experiences = [
     "lede": "Praxis turns versioned scenarios into inspectable evaluation artifacts, keeping raw outputs, assertion results, and comparison conditions together.",
     "body": "The local runner supports model, agent and HTTP application targets. Each run records the conditions, raw outputs and assertion results needed to trace a failure back to its scenario.",
     "workflow": [
-      "Bind scenario and conditions",
-      "Collect target output",
-      "Check required fields",
+      "Bind versioned scenarios and conditions",
+      "Execute the appropriate target adapter",
+      "Validate the output schema",
       "Evaluate assertions",
-      "Retain pass and failure evidence"
+      "Persist outputs, failures, traces and evidence"
     ],
     "kind": "praxis"
   },
