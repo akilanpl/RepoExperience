@@ -1,159 +1,111 @@
-import { projects } from './projects.js';
-
-function mountFooterConstellation() {
+// A cursor-controlled blueprint lens, clipped to the footer lettering.
+function mountBlueprintSignature() {
   const host = document.querySelector('.footer .signature');
   if (!host) return;
   const style = document.createElement('style');
   style.textContent = `
-    .signature.constellation{position:relative;isolation:isolate;height:clamp(260px,32vw,390px);padding:0;background:none;-webkit-text-fill-color:initial;cursor:default;outline-offset:8px}
-    .constellation .signature-word{position:absolute;inset:0;display:grid;place-items:center;background:repeating-linear-gradient(135deg,var(--blue) 0 1px,#8dc8f5 1px 3px,transparent 3px 5px);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;transition:opacity 320ms ease;pointer-events:none}
-    .constellation canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 320ms ease}
-    .constellation .constellation-node{position:absolute;left:var(--x);top:var(--y);display:flex;flex-direction:column;align-items:center;gap:7px;transform:translate(-50%,-35%) scale(.85);opacity:0;pointer-events:none;transition:opacity 360ms ease,transform 600ms cubic-bezier(.22,1,.36,1);font:500 12px/1.2 Geist,Arial,sans-serif;letter-spacing:-.02em;color:#275d88;-webkit-text-fill-color:currentColor;white-space:nowrap;text-decoration:none!important}
-    .constellation-node img{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 4px 9px #1a6aac14);transition:transform 240ms ease}
-    .constellation-node:hover img,.constellation-node:focus-visible img{transform:translateY(-4px) scale(1.08)}
-    .constellation .constellation-caption{position:absolute;bottom:12px;left:0;right:0;margin:0;font:400 14px/1.5 Geist,Arial,sans-serif;letter-spacing:-.02em;color:#667c8e;-webkit-text-fill-color:currentColor;opacity:0;transform:translateY(6px);transition:opacity 400ms ease,transform 500ms ease;pointer-events:none}
-    .constellation .constellation-hint{position:absolute;bottom:12px;left:0;right:0;font:400 11px/1.5 Geist,Arial,sans-serif;letter-spacing:.02em;color:#8596a4;-webkit-text-fill-color:currentColor;transition:opacity 250ms ease;pointer-events:none}
-    .constellation[data-revealed="true"] .signature-word,.constellation[data-revealed="true"] .constellation-hint{opacity:0}
-    .constellation[data-revealed="true"] canvas,.constellation[data-revealed="true"] .constellation-caption{opacity:1;transform:none}
-    .constellation[data-revealed="true"] .constellation-node{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto;transition-delay:100ms}
-    @media(max-width:760px){.signature.constellation{height:300px}.constellation .constellation-node{left:var(--mx);top:var(--my);font-size:10px;gap:6px}.constellation-node img{width:34px;height:34px}.constellation .constellation-caption{font-size:12px;bottom:10px}.constellation .constellation-hint{font-size:10px}}
-    @media(prefers-reduced-motion:reduce){.constellation *{transition:none!important}.constellation-node:hover img{transform:none}}
+    .signature.blueprint-signature{position:relative;isolation:isolate;height:clamp(180px,28vw,350px);padding:0;background:none;-webkit-text-fill-color:initial;cursor:crosshair;outline-offset:6px;touch-action:pan-y}
+    .blueprint-signature .blueprint-word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+    .blueprint-word>span{background:repeating-linear-gradient(135deg,var(--blue) 0 1px,#8dc8f5 1px 3px,transparent 3px 5px);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+    .blueprint-signature canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 280ms ease}
+    .blueprint-signature[data-revealed="true"] canvas{opacity:1}
+    @media(prefers-reduced-motion:reduce){.blueprint-signature canvas{transition:none}}
   `;
   document.head.append(style);
   host.removeAttribute('aria-hidden');
-  host.classList.add('constellation');
+  host.classList.add('blueprint-signature');
   host.tabIndex = 0;
-  host.setAttribute('role', 'group');
-  host.setAttribute('aria-label', 'Akilan. Hover, focus, or tap to reveal my project constellation.');
+  host.setAttribute('role','img');
+  host.setAttribute('aria-label','Akilan. Move over my name to reveal a blueprint of circuits, orbits, and code.');
   host.dataset.revealed = 'false';
-  host.replaceChildren();
-  const word = document.createElement('span');
-  word.className = 'signature-word';
-  word.textContent = 'Akilan';
-  word.setAttribute('aria-hidden', 'true');
-  const canvas = document.createElement('canvas');
-  canvas.setAttribute('aria-hidden', 'true');
-  host.append(word, canvas);
-  const entries = [
-    [0, 'mindscape', 16, 42, 18, 25],
-    [7, 'nyrc', 34, 22, 50, 24],
-    [2, 'praxis', 56, 36, 82, 26],
-    [3, 'worldspeak', 80, 25, 18, 62],
-    [1, 'solarops', 72, 67, 50, 61],
-    [4, 'rlb', 40, 70, 82, 63]
-  ];
-  const nodes = entries.map(([index, slug, x, y, mx, my]) => {
-    const project = projects[index];
-    const link = document.createElement('a');
-    link.className = 'constellation-node';
-    link.href = `experience/${slug}/`;
-    link.style.cssText = `--x:${x}%;--y:${y}%;--mx:${mx}%;--my:${my}%`;
-    link.tabIndex = -1;
-    link.setAttribute('aria-hidden', 'true');
-    link.setAttribute('aria-label', `Explore ${project.name}`);
-    const image = document.createElement('img');
-    image.src = `assets/${project.art}`;
-    image.alt = '';
-    image.width = image.height = 48;
-    const label = document.createElement('span');
-    label.textContent = project.name;
-    link.append(image, label);
-    host.append(link);
-    return link;
-  });
-  const caption = document.createElement('p');
-  caption.className = 'constellation-caption';
-  caption.textContent = 'Research instinct. Builder at heart.';
-  const hint = document.createElement('span');
-  hint.className = 'constellation-hint';
-  hint.textContent = matchMedia('(hover: hover)').matches ? 'A name. A constellation of things built. Hover to explore.' : 'Tap to explore the things I build.';
-  host.append(caption, hint);
+  host.innerHTML = '<span class="blueprint-word" aria-hidden="true"><span>Akilan<i class="blueprint-baseline" style="display:inline-block;width:0;height:0;padding:0;margin:0;vertical-align:baseline"></i></span></span><canvas aria-hidden="true"></canvas>';
+  const canvas = host.querySelector('canvas');
   const ctx = canvas.getContext('2d');
+  const texture = document.createElement('canvas');
+  const ink = texture.getContext('2d');
+  const mask = document.createElement('canvas');
+  const letters = mask.getContext('2d');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let width = 0, height = 0, points = [], active = false, hovering = false, focused = false, toggled = false;
-  let amount = 0, frame = 0, previous = 0, visible = false;
-  function anchors() {
-    const small = matchMedia('(max-width: 760px)').matches;
-    return entries.map((entry) => [width * entry[small ? 4 : 2] / 100, height * entry[small ? 5 : 3] / 100]);
-  }
+  let width=0,height=0,ratio=1,radius=100,frame=0,active=false,hovered=false,focused=false,tapped=false;
+  let x=0,y=0,targetX=0,targetY=0;
   function resize() {
-    width = host.clientWidth;
-    height = host.clientHeight;
-    const ratio = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    const sample = document.createElement('canvas');
-    sample.width = width;
-    sample.height = height;
-    const ink = sample.getContext('2d', { willReadFrequently: true });
-    const font = getComputedStyle(host);
-    ink.font = `${font.fontStyle} ${font.fontWeight} ${font.fontSize} ${font.fontFamily}`;
-    ink.textAlign = 'center';
-    ink.textBaseline = 'middle';
-    ink.fillText('Akilan', width / 2, height / 2);
-    const pixels = ink.getImageData(0, 0, width, height).data;
-    points = [];
-    const step = width < 500 ? 5 : 7;
-    for (let y = 0; y < height; y += step) for (let x = 0; x < width; x += step) {
-      if (pixels[(y * width + x) * 4 + 3] > 100) points.push([x, y]);
+    width=host.clientWidth; height=host.clientHeight;
+    ratio=Math.min(devicePixelRatio||1,2);
+    for(const layer of [canvas,texture,mask]) { layer.width=Math.round(width*ratio); layer.height=Math.round(height*ratio); }
+    for(const context of [ctx,ink,letters]) context.setTransform(ratio,0,0,ratio,0,0);
+    radius=Math.min(112,width*.23);
+    x=targetX=width*.5; y=targetY=height*.5;
+    const text=host.querySelector('.blueprint-word>span');
+    const font=getComputedStyle(text);
+    const box=text.getBoundingClientRect();
+    const bounds=host.getBoundingClientRect();
+    letters.clearRect(0,0,width,height);
+    letters.font=`${font.fontStyle} ${font.fontWeight} ${font.fontSize} ${font.fontFamily}`;
+    letters.textBaseline='alphabetic';
+    const size=parseFloat(font.fontSize);
+    const baseline=host.querySelector('.blueprint-baseline').getBoundingClientRect().top-bounds.top;
+    let left=box.left-bounds.left;
+    const spacing=parseFloat(font.letterSpacing)||0;
+    if ('letterSpacing' in letters) { letters.letterSpacing=font.letterSpacing; letters.fillText('Akilan',left,baseline); }
+    else for(const letter of 'Akilan') { letters.fillText(letter,left,baseline); left+=letters.measureText(letter).width+spacing; }
+    drawTexture(); wake();
+  }
+  function drawTexture() {
+    ink.clearRect(0,0,width,height);
+    ink.fillStyle='#dff2ff'; ink.fillRect(0,0,width,height);
+    ink.strokeStyle='#599adf33'; ink.lineWidth=.65;
+    ink.beginPath();
+    for(let i=0;i<width;i+=16){ink.moveTo(i,0);ink.lineTo(i,height);}
+    for(let i=0;i<height;i+=16){ink.moveTo(0,i);ink.lineTo(width,i);}
+    ink.stroke();
+    ink.strokeStyle='#1766a7'; ink.lineWidth=1.3;
+    for(let i=0;i<12;i++){
+      const px=20+i*97, py=height*.28+(i%4)*24;
+      ink.beginPath();ink.moveTo(px,py);ink.lineTo(px+26,py);ink.lineTo(px+44,py+18);ink.lineTo(px+44,py+63);ink.lineTo(px+81,py+63);ink.stroke();
+      for(const [cx,cy] of [[px,py],[px+81,py+63]]){ink.beginPath();ink.arc(cx,cy,2.4,0,Math.PI*2);ink.fillStyle='#dff2ff';ink.fill();ink.stroke();}
     }
-    wake();
-  }
-  function draw(now) {
-    frame = 0;
-    const elapsed = Math.min((now - previous) / 1000 || .016, .04);
-    previous = now;
-    const goal = active ? 1 : 0;
-    amount = reduced.matches ? goal : amount + (goal - amount) * (1 - Math.exp(-elapsed * 5));
-    const blend = amount * amount * (3 - 2 * amount);
-    ctx.clearRect(0, 0, width, height);
-    const centers = anchors();
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = `rgba(73,161,237,${.28 * blend})`;
-    ctx.beginPath();
-    for (const [a,b] of [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[1,5],[2,4]]) {
-      ctx.moveTo(...centers[a]);
-      ctx.lineTo(...centers[b]);
+    for(const [cx,cy] of [[width*.3,height*.6],[width*.72,height*.45]]){
+      ink.save();ink.translate(cx,cy);ink.strokeStyle='#245f99';ink.lineWidth=1;
+      for(let i=0;i<3;i++){ink.beginPath();ink.ellipse(0,0,55+i*15,21+i*6,-.55+i*.48,0,Math.PI*2);ink.stroke();}
+      ink.beginPath();ink.arc(0,0,3,0,Math.PI*2);ink.fillStyle='#1766a7';ink.fill();ink.restore();
     }
-    ctx.stroke();
-    points.forEach(([x,y], i) => {
-      const center = centers[i % centers.length];
-      const angle = i * 2.39996 + (reduced.matches ? 0 : now * .00004);
-      const radius = (width < 500 ? 23 : 40) + (i % 7) * 3;
-      const tx = center[0] + Math.cos(angle) * radius;
-      const ty = center[1] + Math.sin(angle) * radius * .65;
-      ctx.globalAlpha = .25 + (i % 5) * .12;
-      ctx.fillStyle = '#49a1ed';
-      ctx.beginPath();
-      ctx.arc(x + (tx-x) * blend, y + (ty-y) * blend, blend < .5 ? 1.2 : .8 + (i % 3) * .25, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    ctx.globalAlpha = 1;
-    if (visible && !document.hidden && !reduced.matches && (active || Math.abs(goal - amount) > .002)) frame = requestAnimationFrame(draw);
+    ink.font='10px ui-monospace, SFMono-Regular, Consolas, monospace';ink.fillStyle='#134e80';
+    const snippets=['state → step → verify','f(x) = Σ wᵢxᵢ','observe(); build();','replay(trace)','while (curious) build();'];
+    for(let i=0;i<9;i++) ink.fillText(snippets[i%snippets.length],12+i*131,height*.28+(i%3)*49);
+    ink.globalCompositeOperation='destination-in';ink.drawImage(mask,0,0,width,height);ink.globalCompositeOperation='source-over';
   }
-  function wake() { if (!frame) { previous = performance.now(); frame = requestAnimationFrame(draw); } }
-  function update() {
-    active = hovering || focused || toggled;
-    host.dataset.revealed = String(active);
-    nodes.forEach(link => { link.tabIndex = active ? 0 : -1; link.setAttribute('aria-hidden', String(!active)); });
-    wake();
+  function draw() {
+    frame=0;
+    const ease=reduced.matches?1:.2;
+    x+=(targetX-x)*ease; y+=(targetY-y)*ease;
+    ctx.clearRect(0,0,width,height);
+    ctx.save();
+    ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);ctx.clip();
+    ctx.drawImage(texture,0,0,width,height);
+    ctx.restore();
+    // A quiet lens outline follows the pointer without changing the name's layout.
+    ctx.strokeStyle='#398ecb38';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,y,radius,0,Math.PI*2);ctx.stroke();
+    ctx.strokeStyle='#398ecb77';ctx.beginPath();ctx.moveTo(x-4,y);ctx.lineTo(x+4,y);ctx.moveTo(x,y-4);ctx.lineTo(x,y+4);ctx.stroke();
+    if(active&&!reduced.matches&&(Math.abs(targetX-x)>.15||Math.abs(targetY-y)>.15)) wake();
   }
-  host.addEventListener('pointerenter', event => { if (event.pointerType !== 'touch') { hovering = true; update(); } });
-  host.addEventListener('pointerleave', () => { hovering = false; update(); });
-  host.addEventListener('focusin', event => { focused = event.target.matches(':focus-visible'); update(); });
-  host.addEventListener('focusout', event => { if (!host.contains(event.relatedTarget)) { focused = false; toggled = false; update(); } });
-  host.addEventListener('click', event => { if (!event.target.closest('a') && (event.pointerType === 'touch' || !matchMedia('(hover: hover)').matches)) { toggled = !toggled; update(); } });
-  host.addEventListener('keydown', event => {
-    if (event.target === host && ['Enter',' '].includes(event.key)) { event.preventDefault(); toggled = !toggled; focused = toggled; update(); }
-    if (event.key === 'Escape') { event.preventDefault(); hovering = focused = toggled = false; update(); }
+  function wake(){if(!frame)frame=requestAnimationFrame(draw);}
+  function update(){active=hovered||focused||tapped;host.dataset.revealed=String(active);if(active)wake();}
+  function point(event){const box=host.getBoundingClientRect();targetX=Math.max(0,Math.min(width,event.clientX-box.left));targetY=Math.max(0,Math.min(height,event.clientY-box.top));wake();}
+  host.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch'){hovered=true;point(event);update();}});
+  host.addEventListener('pointermove',event=>{if(event.pointerType!=='touch'||tapped)point(event);});
+  host.addEventListener('pointerleave',()=>{hovered=false;update();});
+  host.addEventListener('focus',()=>{focused=host.matches(':focus-visible');targetX=width*.5;targetY=height*.5;update();});
+  host.addEventListener('blur',()=>{focused=tapped=false;update();});
+  host.addEventListener('click',event=>{if(event.pointerType==='touch'||!matchMedia('(hover:hover)').matches){tapped=!tapped;point(event);update();}});
+  host.addEventListener('keydown',event=>{
+    if(event.key==='Escape'){event.preventDefault();hovered=focused=tapped=false;update();}
+    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();focused=true;targetX=Math.max(0,Math.min(width,targetX+(event.key==='ArrowLeft'?-32:event.key==='ArrowRight'?32:0)));targetY=Math.max(0,Math.min(height,targetY+(event.key==='ArrowUp'?-24:event.key==='ArrowDown'?24:0)));update();wake();}
+    if(['Enter',' '].includes(event.key)){event.preventDefault();tapped=!tapped;focused=tapped;update();}
   });
   new ResizeObserver(resize).observe(host);
-  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) wake(); else { cancelAnimationFrame(frame); frame = 0; } }).observe(host);
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { cancelAnimationFrame(frame); frame = 0; } else if (visible) wake(); });
-  reduced.addEventListener('change', wake);
   document.fonts.ready.then(resize);
+  reduced.addEventListener('change',wake);
   resize();
 }
-if (document.readyState === 'complete') mountFooterConstellation();
-else document.addEventListener('DOMContentLoaded', mountFooterConstellation, { once: true });
+if(document.readyState==='complete')mountBlueprintSignature();
+else document.addEventListener('DOMContentLoaded',mountBlueprintSignature,{once:true});
