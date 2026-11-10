@@ -117,3 +117,66 @@ if (nav) {
   document.fonts.ready.then(requestNavigationPaint);
   requestNavigationPaint();
 }
+
+// Consistent external-link mark across static content and dynamically mounted UI.
+function replaceOutwardArrows(root) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (node.nodeValue.includes('↗') && !node.parentElement?.closest('script,style,pre,code,textarea,svg,[contenteditable="true"]')) nodes.push(node);
+  }
+  for (const node of nodes) {
+    const fragment = document.createDocumentFragment();
+    node.nodeValue.split('↗').forEach((text, index) => {
+      if (index) {
+        const mark = document.createElement('span');
+        mark.className = 'outward-globe';
+        mark.setAttribute('aria-hidden', 'true');
+        mark.style.cssText = 'display:inline-flex;vertical-align:-.12em;width:1em;height:1em;min-width:0;min-height:0;padding:0;margin:0;background:transparent;border-radius:0;color:inherit;font-size:inherit;line-height:1;flex:none';
+        mark.innerHTML = '<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg>';
+        fragment.append(mark);
+      }
+      if (text) fragment.append(document.createTextNode(text));
+    });
+    node.replaceWith(fragment);
+  }
+}
+function mountLinkConventions() {
+  // Returning home must not restore the postcard preview from the previous visit.
+  if (location.pathname.includes('/experience/')) {
+    try { sessionStorage.removeItem('akilan:mindscape:return'); } catch {}
+  }
+  replaceOutwardArrows(document.body);
+  new MutationObserver((records) => {
+    for (const record of records) {
+      if (record.type === 'characterData') replaceOutwardArrows(record.target.parentNode);
+      else for (const node of record.addedNodes) {
+        if (node.nodeType === Node.ELEMENT_NODE) replaceOutwardArrows(node);
+        else if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes('↗')) replaceOutwardArrows(node.parentNode);
+      }
+    }
+  }).observe(document.body, { subtree: true, childList: true, characterData: true });
+
+  const returnSelector = '.article-close,.article-stamp,[data-close],.article-footer a[href*="#projects"],.stamp-close';
+  document.querySelectorAll(returnSelector).forEach((control) => {
+    if (control.tagName === 'A') control.href = '/';
+    control.setAttribute('aria-label', 'Back to main homepage');
+  });
+  document.addEventListener('click', (event) => {
+    const control = event.target.closest(returnSelector);
+    if (!control) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.assign('/');
+  }, true);
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !location.pathname.includes('/experience/') || event.target.closest('input,textarea,select,button')) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.assign('/');
+  }, true);
+}
+if (document.readyState === 'complete') mountLinkConventions();
+else document.addEventListener('DOMContentLoaded', mountLinkConventions, { once: true });
