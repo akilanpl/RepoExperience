@@ -113,3 +113,12 @@ All fifteen images were inspected as viewport contact sheets, with detailed mobi
 This is a faithful static demonstration, not the installed application. No current inference, backend, account persistence, real target configuration, authentic public blind match, voting or model ranking is provided. Clipboard access depends on browser secure-context policy; selectable output remains available on failure. Tests use Chromium in cloud; Safari/Firefox and exhaustive assistive-technology acceptance were not performed. Original Praxis runtime tests were not rerun because the source application was read-only and unchanged.
 
 The PR targets `main` from `codex/praxis-interactive-experience`; no merge or production deployment is part of this work. See the PR for the exact destination commit and review status.
+
+## Publication outcome
+
+The implementation is committed on the requested cloud branch, but publication is blocked by GitHub write permissions:
+
+- `git push -u origin codex/praxis-interactive-experience` returned HTTP **403**, “Permission to akilanpl/RepoExperience.git denied to akilanpl.”
+- The connected GitHub app's metadata advertised push access, but its authorized create-branch request also returned HTTP **403**, **“Resource not accessible by integration.”**
+
+No remote branch or PR was created, no merge occurred, and the public site was not deployed. All completed code, screenshots and acceptance receipts remain in `/workspace/RepoExperience`. Publishing can resume after GitHub repository write access is available; no local-Mac transfer is needed.
