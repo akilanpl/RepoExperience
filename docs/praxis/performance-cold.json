@@ -1,0 +1,30 @@
+{
+  "ready_observed_ms": 232,
+  "resource_bytes": 152074,
+  "resources": [
+    {
+      "path": "/demos/praxis/styles.css",
+      "bytes": 8058
+    },
+    {
+      "path": "/demos/praxis/app.js",
+      "bytes": 24885
+    },
+    {
+      "path": "/demos/praxis/data/suite-definitions.json",
+      "bytes": 73107
+    },
+    {
+      "path": "/assets/geist.woff2",
+      "bytes": 29400
+    },
+    {
+      "path": "/demos/praxis/data/structured-agent-passing.json",
+      "bytes": 15598
+    },
+    {
+      "path": "/favicon.ico",
+      "bytes": 1026
+    }
+  ]
+}

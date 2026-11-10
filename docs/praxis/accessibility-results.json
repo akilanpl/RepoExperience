@@ -1,0 +1,332 @@
+[
+  {
+    "width": 390,
+    "state": "workspace",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "suites",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 12,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "run",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "evidence",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 12,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "compare",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "arena",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "reports",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "models",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "agents",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "apps",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "state": "methodology",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 6,
+        "reasons": [
+          "Element's background color could not be determined because it's partially obscured by another element"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "workspace",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "suites",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "run",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "evidence",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "compare",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "arena",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "reports",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "models",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "agents",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "apps",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "state": "methodology",
+    "engine": "4.14.0",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "count": 11,
+        "reasons": [
+          "Element content contains only non-text characters"
+        ]
+      }
+    ]
+  }
+]

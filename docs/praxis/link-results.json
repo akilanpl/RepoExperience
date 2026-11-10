@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://github.com/akilanpl/praxis/tree/codex/praxis-final-release",
+    "status": 200,
+    "final_url": "https://github.com/akilanpl/praxis/tree/codex/praxis-final-release"
+  },
+  {
+    "url": "https://github.com/akilanpl/praxis/archive/refs/heads/codex/praxis-final-release.zip",
+    "status": 200,
+    "final_url": "https://codeload.github.com/akilanpl/praxis/zip/refs/heads/codex/praxis-final-release"
+  },
+  {
+    "url": "https://github.com/akilanpl/praxis/blob/codex/praxis-final-release/docs/operations/LOCAL_INSTALLATION_RECOVERY.md",
+    "status": 200,
+    "final_url": "https://github.com/akilanpl/praxis/blob/codex/praxis-final-release/docs/operations/LOCAL_INSTALLATION_RECOVERY.md"
+  },
+  {
+    "url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/apps/web/src/main.tsx",
+    "status": 200,
+    "final_url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/apps/web/src/main.tsx"
+  },
+  {
+    "url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/packages/scenarios/structured-agent-v1.json",
+    "status": 200,
+    "final_url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/packages/scenarios/structured-agent-v1.json"
+  },
+  {
+    "url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/runner/praxis/engine.py",
+    "status": 200,
+    "final_url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/runner/praxis/engine.py"
+  },
+  {
+    "url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/runner/praxis/agent.py",
+    "status": 200,
+    "final_url": "https://github.com/akilanpl/praxis/blob/75243f70731fb5b8001ff39c64d83af9a02120b5/runner/praxis/agent.py"
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "checks": [
+    "Workspace: six suites, forty scenarios, three kinds",
+    "Default source suite and route-outage input",
+    "All six suites, forty task definitions and genuine failing snapshots",
+    "Passing 8/8, failing 0/8, recorded 0/8; authentic assertion totals",
+    "Recorded real output, provider metadata and failed assertion inspector",
+    "Output clipboard action",
+    "Agent state/permission traces and HTTP response contracts, both outcomes",
+    "Explanatory comparison and authentic Arena capture",
+    "Normalized JSON download and printable report",
+    "Keyboard skip link, native controls and visible focus",
+    "All five tour steps, one persistent iframe, pinned source and release onboarding",
+    "390/768/1024/1280/1440 screenshots and no document overflow across all states",
+    "Reduced-motion replay completes without paced animation",
+    "RLB, NYRC, Mindscape and Survey shared experiences still render",
+    "Homepage Praxis collection card uses updated beta metadata",
+    "No console errors, failed HTTP assets or Praxis API traffic"
+  ],
+  "console_errors": [],
+  "failed_responses": [],
+  "performance_local_cache_warm": [
+    {
+      "viewport": 390,
+      "domContentLoaded_ms": 16,
+      "load_ms": 17,
+      "resources": 7,
+      "transfer_bytes": 0
+    },
+    {
+      "viewport": 768,
+      "domContentLoaded_ms": 52,
+      "load_ms": 53,
+      "resources": 7,
+      "transfer_bytes": 600
+    },
+    {
+      "viewport": 1024,
+      "domContentLoaded_ms": 28,
+      "load_ms": 30,
+      "resources": 7,
+      "transfer_bytes": 0
+    },
+    {
+      "viewport": 1280,
+      "domContentLoaded_ms": 25,
+      "load_ms": 26,
+      "resources": 7,
+      "transfer_bytes": 600
+    },
+    {
+      "viewport": 1440,
+      "domContentLoaded_ms": 28,
+      "load_ms": 30,
+      "resources": 7,
+      "transfer_bytes": 300
+    }
+  ],
+  "screenshots": [
+    "docs/praxis/screenshots/evidence-1024.png",
+    "docs/praxis/screenshots/evidence-1280.png",
+    "docs/praxis/screenshots/evidence-1440.png",
+    "docs/praxis/screenshots/evidence-390.png",
+    "docs/praxis/screenshots/evidence-768.png",
+    "docs/praxis/screenshots/page-1024.png",
+    "docs/praxis/screenshots/page-1280.png",
+    "docs/praxis/screenshots/page-1440.png",
+    "docs/praxis/screenshots/page-390.png",
+    "docs/praxis/screenshots/page-768.png",
+    "docs/praxis/screenshots/workspace-1024.png",
+    "docs/praxis/screenshots/workspace-1280.png",
+    "docs/praxis/screenshots/workspace-1440.png",
+    "docs/praxis/screenshots/workspace-390.png",
+    "docs/praxis/screenshots/workspace-768.png"
+  ]
+}
