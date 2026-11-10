@@ -83,8 +83,8 @@ function mountProjectNavigation() {
   if (sources) {
     sources.classList.add('project-resources');
     sources.setAttribute('aria-label', `${project.name} setup and downloads`);
-    const setup = pill('Local setup', `${project.url}/blob/HEAD/${setupPaths[currentIndex]}`, book);
-    const source = pill('Download source', `${project.url}/archive/HEAD.zip`, download);
+    const setup = pill('Local setup', currentIndex === 2 ? `${project.url}/blob/codex/praxis-final-release/docs/operations/LOCAL_INSTALLATION_RECOVERY.md` : `${project.url}/blob/HEAD/${setupPaths[currentIndex]}`, book);
+    const source = pill('Download source', currentIndex === 2 ? `${project.url}/archive/refs/heads/codex/praxis-final-release.zip` : `${project.url}/archive/HEAD.zip`, download);
     sources.replaceChildren(setup, source);
 
     const platforms = document.createElement('span');
@@ -92,6 +92,7 @@ function mountProjectNavigation() {
     // Platform labels describe the documented interface/build targets, not binaries.
     let label = 'Web';
     let icon = globe;
+    if (currentIndex === 2) { label = 'Linux · macOS 15 · source build'; icon = desktop; }
     if (currentIndex === 7) { label = 'macOS · Windows · Linux'; icon = desktop; }
     if (currentIndex === 4) { label = 'Web · Windows desktop build'; icon = desktop; }
     if (currentIndex === 8) { label = 'API · Docker'; icon = server; }

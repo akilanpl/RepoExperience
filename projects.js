@@ -35,11 +35,11 @@ export const projects = [
     "bg": "#e5e6ff",
     "fg": "#393b83",
     "art": "project-3.svg",
-    "description": "An evaluation workspace in development for models, tool-using agents, and HTTP applications.",
+    "description": "Local-first AI evaluation workspace for models, tool-using agents and HTTP applications, built around executable assertions and inspectable evidence.",
     "tags": [
-      "In development"
+      "AI Evaluation", "Developer Tools", "Open Source", "Controlled Beta"
     ],
-    "headline": ""
+    "headline": "Evaluate what AI systems actually do."
   },
   {
     "name": "WorldSpeak",

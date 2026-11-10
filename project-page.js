@@ -32,7 +32,13 @@ function selectStep(index) {
   query('.tour-title').textContent = title;
   notes.textContent = instruction;
   source.href = project.url + (path.includes('.') ? '/blob/' : '/tree/') + revision + '/' + path.split('/').map(encodeURIComponent).join('/');
-  const assetChanged = asset !== activeAsset;
+  const continuousPraxis = config.slug === 'praxis' && surface.querySelector('iframe');
+  const assetChanged = asset !== activeAsset && !continuousPraxis;
+  if (continuousPraxis) {
+    // A same-document hash update retains suite, mode, selection and replay state.
+    continuousPraxis.contentWindow.location.replace(new URL(asset, document.baseURI).href);
+    continuousPraxis.title = project.name + ' — ' + title;
+  }
   activeAsset = asset;
   if (assetChanged) {
     surface.replaceChildren();
@@ -48,7 +54,7 @@ function selectStep(index) {
   const local = asset.startsWith('http:');
   const live = asset.startsWith('https:');
   const capture = asset.endsWith('.png');
-  query('.tour-mode').textContent = live ? 'Live website' : local ? 'Local runtime required' : capture ? 'Original repository capture' : asset.endsWith('.pdf') ? 'Original document' : asset.startsWith('demos/praxis/') ? 'Original evaluation artifact' : asset === 'demos/worldspeak/cafe.html' ? 'Interactive practice scene' : asset.startsWith('demos/stocksense/#') ? 'Interactive StockSense workspace' : asset.startsWith('demos/solarops/') ? 'Interactive SolarOps workspace' : asset.startsWith('demos/workplace-safety/#') ? 'Interactive safety workspace' : asset.startsWith('demos/survey/') ? 'Interactive reconstruction from the recording' : asset === 'demos/nyrc/experience.html' ? 'Interactive desktop and concept film' : asset === 'demos/rlb/' ? 'Interactive task demo' : asset === 'demos/enterprise-rag/' ? 'Interactive retrieval console' : asset === 'demos/space-debris/' ? 'Interactive mission simulation' : asset === 'demos/atrium/match.html' ? 'Recorded multiplayer match' : asset === 'demos/atrium/' ? 'Original character picker' : 'Original browser interface';
+  query('.tour-mode').textContent = live ? 'Live website' : local ? 'Local runtime required' : capture ? 'Original repository capture' : asset.endsWith('.pdf') ? 'Original document' : asset.startsWith('demos/praxis/#') ? 'Interactive demonstration · source-derived snapshots' : asset.startsWith('demos/praxis/') ? 'Original evaluation artifact' : asset === 'demos/worldspeak/cafe.html' ? 'Interactive practice scene' : asset.startsWith('demos/stocksense/#') ? 'Interactive StockSense workspace' : asset.startsWith('demos/solarops/') ? 'Interactive SolarOps workspace' : asset.startsWith('demos/workplace-safety/#') ? 'Interactive safety workspace' : asset.startsWith('demos/survey/') ? 'Interactive reconstruction from the recording' : asset === 'demos/nyrc/experience.html' ? 'Interactive desktop and concept film' : asset === 'demos/rlb/' ? 'Interactive task demo' : asset === 'demos/enterprise-rag/' ? 'Interactive retrieval console' : asset === 'demos/space-debris/' ? 'Interactive mission simulation' : asset === 'demos/atrium/match.html' ? 'Recorded multiplayer match' : asset === 'demos/atrium/' ? 'Original character picker' : 'Original browser interface';
   open.textContent = live ? 'Open live portfolio ↗' : local ? 'Open locally after setup ↗' : capture ? 'View full capture ↗' : 'Open full view ↗';
 
   if (!assetChanged) return;
