@@ -1,0 +1,23 @@
+{
+  "name": "repoexperience",
+  "version": "1.0.0",
+  "description": "Portfolio and project showcase with interactive experiences",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akilanpl/RepoExperience.git"
+  },
+  "keywords": ["portfolio", "showcase", "interactive"],
+  "author": "Akilan P L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akilanpl/RepoExperience/issues"
+  },
+  "homepage": "https://github.com/akilanpl/RepoExperience#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}

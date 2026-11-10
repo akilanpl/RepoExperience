@@ -1,3 +1,5 @@
+import './analytics.js';
+
 const groups = {
   focus: [
     ['Research', 'Reasoning, retrieval, and evaluation that expose the evidence behind an outcome.',1],
