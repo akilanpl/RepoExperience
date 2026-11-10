@@ -1,3 +1,4 @@
+import './footer-constellation.js';
 import './project-navigation.js';
 // One quiet, continuously turning particle mark; the same particles form the A.
 const link = document.querySelector('.header .monogram');
