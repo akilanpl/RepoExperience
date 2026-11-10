@@ -106,3 +106,44 @@ function mountBlueprintSignature() {
 }
 if(document.readyState==='complete')mountBlueprintSignature();
 else document.addEventListener('DOMContentLoaded',mountBlueprintSignature,{once:true});
+
+function mountFooterName() {
+  const heading = document.querySelector('#contact .footer-top h2');
+  if (!heading || heading.textContent.trim() !== 'Akilan P L') return;
+  const style = document.createElement('style');
+  style.textContent = `
+    .footer-name-toggle{display:inline-flex;align-items:baseline;position:relative;vertical-align:baseline;border:0;padding:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;white-space:nowrap;width:var(--short);transition:width 430ms cubic-bezier(.22,1,.36,1)}
+    .footer-name-toggle .name-short,.footer-name-toggle .name-long{transition:opacity 220ms ease,transform 430ms cubic-bezier(.22,1,.36,1)}
+    .footer-name-toggle .name-long{position:absolute;left:0;top:50%;font-size:.60em;transform:translate(-8px,-50%) scaleX(.82);transform-origin:left;opacity:0}
+    .footer-name-toggle:is(:focus-visible,[aria-pressed="true"]){width:var(--long)}
+    .footer-name-toggle:is(:focus-visible,[aria-pressed="true"]) .name-short{opacity:0;transform:translateX(8px)}
+    .footer-name-toggle:is(:focus-visible,[aria-pressed="true"]) .name-long{opacity:1;transform:translate(0,-50%) scaleX(1)}
+    @media(hover:hover){.footer-name-toggle:hover{width:var(--long)}.footer-name-toggle:hover .name-short{opacity:0;transform:translateX(8px)}.footer-name-toggle:hover .name-long{opacity:1;transform:translate(0,-50%) scaleX(1)}}
+    @media(max-width:380px){.footer-name-toggle .name-long{font-size:.46em}}
+    @media(prefers-reduced-motion:reduce){.footer-name-toggle,.footer-name-toggle span{transition:none!important}}
+  `;
+  document.head.append(style);
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'footer-name-toggle';
+  button.setAttribute('aria-label', 'Palaniyappan');
+  button.setAttribute('aria-pressed', 'false');
+  button.innerHTML = '<span class="name-short" aria-hidden="true">P L</span><span class="name-long" aria-hidden="true">PALANIYAPPAN</span>';
+  button.addEventListener('click', () => {
+    button.setAttribute('aria-pressed', String(button.getAttribute('aria-pressed') === 'false'));
+  });
+  heading.replaceChildren('Akilan ', button);
+  const measure = () => {
+    button.style.setProperty('--short', button.querySelector('.name-short').offsetWidth + 'px');
+    button.style.setProperty('--long', button.querySelector('.name-long').offsetWidth + 'px');
+  };
+  measure();
+  document.fonts.ready.then(measure);
+  new ResizeObserver(measure).observe(heading);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mountFooterName, { once: true });
+} else {
+  mountFooterName();
+}
